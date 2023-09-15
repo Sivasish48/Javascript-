@@ -20,4 +20,10 @@
 
 console.log(typeof "hjdbweh");
 
+// NOTE
 
+console.log(typeof undefined);// undefined
+
+// BUT
+
+console.log(typeof null); // object
