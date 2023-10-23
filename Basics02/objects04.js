@@ -65,3 +65,40 @@ const obj11 = {
 const obj15 = {...obj10,...obj11}
 console.log(obj15); // { '14': 'hg', '45': 754, '52': 'jhi', '157': 7580 } , This method is used mostly
 
+//While retrieving data from the database the objects come up in the array
+
+const dbUser = [
+    {
+        email:"S@gmail.com",
+        isLoggedIn: false
+    },
+    {
+        email:"SS@gmai.com",
+        isLoggedIn:true
+    }
+]
+
+console.log(dbUser[1].email); // SS@gmai.com  (We can acees those value like this)
+
+
+// We can also access the values or the keys to loop through the data (which is very important)
+
+const newO = new Object(
+    {
+        name:"peps",
+        age:19,
+        gender:"male"
+    }
+)
+console.log(Object.keys(newO)); // [ 'name', 'age', 'gender' ]  (FOR keys)
+console.log(Object.values(newO)); // [ 'peps', 19, 'male' ] (FOR values)
+
+// There is a another method where we can keep the keys with their values in an individual array in the whole array.
+
+console.log(Object.entries(newO)); // [ [ 'name', 'peps' ], [ 'age', 19 ], [ 'gender', 'male' ] ]
+
+// There is anothere syntax where we can check whether a particular property or key is present in the object or not and the result comes in boolean.
+
+console.log(newO.hasOwnProperty("isLoggedIn"));// false
+
+
