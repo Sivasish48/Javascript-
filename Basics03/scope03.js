@@ -50,11 +50,11 @@ console.table[(x,y)] // not defined
 
 // 3.Function Scope
 
-// Each functions create a new scope .
+// Each function creates a new scope.
 
-// Variable defined inside a scope or the function are not accessible or visible outside of the function.
+// Variable defined inside a scope or the function is not accessible or visible outside of the function.
 
-// All the variable declaration keywords such as var , let and const have functional scope.
+// All the variable declaration keywords such as var, let and const have functional scope.
 
 
 function myFunction(){
@@ -74,11 +74,11 @@ function myFf(){
 
 // 4. Global Scope
 
-// Variables declared globaaly or outside any function have global scope.
+// Variables declared globally or outside any function have global scope.
 
 // Global variables can be accessed from anywhere in a javascript program.
 
-// var , let , const all have global scope if they get declared outside the function scope.
+// var, let, const all have a global scope if they get declared outside the function scope.
 
 var x = 2;
 let y = 5 ;
