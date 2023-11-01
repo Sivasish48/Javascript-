@@ -46,7 +46,48 @@ console.table[(x,y)] // not defined
  // Local variables have function scope it can only be applicable within a function.
 
  // Since local variables are created within a function they can also be used in different functions.
- 
+ // LOCAL VARIABLE EXISTS WHEN A FUNCTION STARTS AND GETS DELETED WHEN THE FUNCTION IS DELETED.
+
+// 3.Function Scope
+
+// Each functions create a new scope .
+
+// Variable defined inside a scope or the function are not accessible or visible outside of the function.
+
+// All the variable declaration keywords such as var , let and const have functional scope.
+
+
+function myFunction(){
+    var carName = "Skoda"
+}
+//console.log(carNamr); // carName is not defined.
+
+function myFunction_two(){
+    let carr = "Toyota"
+}
+//console.log(carr); // carr is not defined.
+
+function myFf(){
+    const caR = "hyundai"
+}
+//console.log(caR); // caR in not defined.
+
+// 4. Global Scope
+
+// Variables declared globaaly or outside any function have global scope.
+
+// Global variables can be accessed from anywhere in a javascript program.
+
+// var , let , const all have global scope if they get declared outside the function scope.
+
+var x = 2;
+let y = 5 ;
+const z = 12;
+
+function matH(){
+    console.log(x+y+z);
+}
+console.log(matH()); // 19
  
 
 
