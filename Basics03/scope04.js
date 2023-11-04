@@ -43,10 +43,21 @@
 
  // What if we declare the function as it is and call or execute the function above the function?
 
- console.log(addOne(5));
+ console.log(addOne(5)); // 6
  
  function addOne(num){
     return num+1
   }
- 
+  // The ans is still 6.
+
+  // Let us store function into a variable and then execute
+  console.log(addT(5)); // error 
+  const addT = function(num){
+   return num+2
+  }
+  
+// This code will through an error as we are storing a function in a variable.
+// If we do so the variable becomes or is also called an expression.
+// Although it is an expression it is also a variable and we know variables are not recognized before its declaration.
+
   
