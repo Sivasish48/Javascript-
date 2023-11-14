@@ -1,7 +1,7 @@
 
 
 
-// JAVASCRIPT ARROW FUNCTIONS
+// JAVASCRIPT ARROW FUNCATIONS
 
 // Arrow functions were introduced in ES6.
 
@@ -49,3 +49,55 @@ console.log(yo("hiii")); // hiii , suvam.
 // Implicit arrow function
 
 // It is an arrow fucntion where "return" keyword is removed with the curly braces and paranthesis are used instead of them.
+
+// ex 
+
+const me = () => (console.log("helloo everyone"))
+
+console.log(me()); // helloo everyone
+
+// Another example with parameter and argument.
+
+const price = (rs) => (console.log(`${rs} is the price.`))
+
+console.log(price(45)); // 45 is the price.
+
+// so here the implicit expression of arrow or the implicit arrow function is used mostly in react js.
+
+// implicit arrow fucntion is used mostly because if the object is used then it will show the object as an output.
+// Ex>>>.
+
+
+const obj = (num1 , num2) => ({
+    username:"Suvam"
+})
+
+console.log(obj(56.75)); // { username: 'Suvam' }
+// It returns while we use the paranthesis.
+
+// Other wise it will give undefined as the output .
+// / ex
+
+const obj2 = (number) => {
+{
+useris: "SUVAm"
+}}
+console.log(obj2(45)); // undefined
+
+// Let us have look what happens when we use "this" keyword in an arrow fucntion in multiple scenarios.
+
+const tea = () => {
+    let username = "SUVAMM"
+    console.log(`${this.username} , how are u?`);
+}
+
+console.log(tea()); // undefined , how are u?  
+
+// It shows undefined.
+
+const myy = () => {
+    let user = "allu"
+    console.log(this); // ndefined
+}
+
+// Everytime we use "this" keyword in the function wheather it is general function or arrow funtion it doesnot show the current conext.
