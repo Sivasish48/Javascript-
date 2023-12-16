@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <div class="divParent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+   const theFirstDiv =  document.querySelector('.divParent')
+    console.log(theFirstDiv);
+    // Now get theFirstDiv's parent
+    console.log(theFirstDiv.children);
+    // now if we want to choose any particular children element, the way is
+    console.log(theFirstDiv.children[0]);
+    //<div class="day">Monday</div>
+</script>
+</html>
