@@ -21,5 +21,31 @@
     // now if we want to choose any particular children element, the way is
     console.log(theFirstDiv.children[0]);
     //<div class="day">Monday</div>
+
+    // using for loop in a htmlcollection
+
+    for(let i = 0; i<theFirstDiv.children.length ; i++){
+        console.log(theFirstDiv.children[i].innerHTML);
+    }
+    // Other properties
+
+    console.log(theFirstDiv.firstElementChild);
+    console.log(theFirstDiv.lastElementChild)
+    
+
+    // We can also jump to any parent element by its targeted child element
+
+    console.log(theFirstDiv.parentElement);
+
+    const days = document.querySelector('.day')
+    console.log(days);
+    console.log(days.nextElementSibling);
+
+    // childNodes
+
+    console.log("NODES: " , theFirstDiv.childNodes);
+
+    // It shows the are 9 child nodes we have coded only 4 child nodes which are the days.
+    // But in the dom tree every ting every seen or unseen element is counted in nodeList.
 </script>
 </html>
