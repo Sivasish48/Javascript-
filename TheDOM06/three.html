@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: #fff;">
+    
+</body>
+<script>
+    // How to create a element 
+    const theDiv = document.createElement("div")
+    console.log(theDiv); 
+    // how to attributes in an element
+
+    theDiv.className = "classOfDiv"
+
+    theDiv.id = "idOfDiv"
+
+    // We can also costumly create attributes
+ 
+    theDiv.setAttribute("title","generated title")
+
+    // We can also style the created div
+ 
+ theDiv.style.backgroundColor = "yellow"
+ theDiv.style.padding = "20px"
+ //theDiv.style.innerText = "hello everyone"
+
+ // As you can see we cant see the div
+
+ // So the preferable way is instead of writing the innerText
+
+ const theText = document.createTextNode("hello everyone")
+
+ theDiv.appendChild(theText)
+
+ document.body.appendChild(theDiv)
+
+</script>
+</html>
