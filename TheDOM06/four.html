@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: #ffff;">
+    <ul class="language">
+       <li>Javascript</li> 
+    </ul>
+</body>
+<script>
+
+    //  basic way to attach a html element by using a function
+     
+    function addNewLi (langName) {
+        const newLi = document.createElement('li')
+        newLi.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(newLi)
+     }
+    addNewLi("python")
+
+    // In this way the document has to traversea lot in the dom tree for injecting one new element.
+    // Imagine if there is multiple or thousand of new element is required to be injected
+
+    // To do this opeartion more easily or in more optimizeable way we can use the below way
+
+    function addLiOpt (langName) {
+        const newLi = document.createElement('li')
+        newLi.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(newLi)
+    }
+    addLiOpt("Ruby")
+
+
+    // how to edit values
+    // basic way
+
+    const secondLang = document.querySelector("li:nth-child(2)")
+    secondLang.innerHTML = "Carbon"
+
+    /*
+    Javascript
+    Carbon
+    Ruby
+*/
+
+    // Now the optimized way
+
+    const newL = document.createElement("li")
+    newL.textContent = "golang"
+    secondLang.replaceWith(newL)
+
+    // Another way
+
+    const firstC = document.querySelector("li:first-child")
+    firstC.outerHTML = "<li>typeScript</li>"
+
+    // How to remove any value
+
+    const lastC = document.querySelector("li:last-child")
+    lastC.remove()
+</script>
+</html>
