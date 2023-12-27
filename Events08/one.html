@@ -50,10 +50,44 @@
 
     // In this approach we have to target the id as always.
     // and with evnetListener() we give the type of event and another parameter as false which is by default actually.
+   /*document.getElementById("owl").addEventListener("click", (e)=> {
+         alert("owl is clicked again")
+    },false)*/
+
+    // we also get an event object
+
     document.getElementById("owl").addEventListener("click", (e)=> {
          alert("owl is clicked again")
+         console.log(e);
+         
+        
+         // we get the browser event as well as environmental events
+
     },false)
 
+    // topics should be studied about the below event object's topic
 
+    // type, timestamp , defaultPrevented, target , toElement , srcElement , currentTarget , clientX, clientY , screenX , ScreenY 
 
+    // e.type
+
+    console.log(e.type); // click
+     // It returns the result as a string and the result would be the type of event.
+
+    // e.timestamp
+    console.log(e.timeStamp); // 1423.45444 (in milli second)
+
+    // The timeStamp event property returns the number of milliseconds from when the document was finished loading until the specific event was created.
+    // Not all systems provide this information, therefore, timeStamp may be not available for all systems/events.
+
+    // defaultPrevented
+
+    // The defaultPrevented event property checks whether the preventDefault() method was called for the event.
+    // as we know the preventDefault() method holds the value 
+
+    // target
+
+    console.log(e.target);
+
+    // The target property returns the element where the event occurred.
 </script>
