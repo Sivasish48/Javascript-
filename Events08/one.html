@@ -21,13 +21,13 @@
 <script>
 
 
-    // As we know javascript is sequential running language.Every sequence is run after another sequence.
+    // As we know javascript is a sequential running language. Every sequence is run after another sequence.
 
-    // There are events happen on browser which are evoked after any kind of actiity.
+    //some events happen on the browser which are evoked after any kind of activity.
 
-    // these activity is known as the events.
+    //These activity is known as the events.
 
-    // the activity can be of many types as mouse hovering, mouse clicked, double clicked ,keyboard's value clicked, drag and drop etc.
+    //The activity can be of many types as mouse hovering, mouse clicked, double clicked, keyboard's value clicked, drag and drop, etc.
      
 
     // let us target the <li> with the id of "owl"  
@@ -35,7 +35,7 @@
     
     // 1st approach
 
-    // writing onclick="" in a html tag itself  for an click event may not be a very good approch when scale is large.
+    //Writing onclick="" in an html tag itself  for a click event may not be a very good approach when the scale is large.
     // It is not recommended
 
     // 2nd approach 
@@ -43,31 +43,39 @@
     //document.getElementById("owl").onclick = ()=> {
      //   alert("owl is clicked")
     //}
-    // This approach can also be accepted but the eventlistener featurs not only provides the click events but also different events.
+    // This approach can also be accepted but the event listener features not only provides the click events but also different events.
     // So this approach is also not recommended.
 
     // 3rd or best approach 
 
     // In this approach we have to target the id as always.
-    // and with evnetListener() we give the type of event and another parameter as false which is by default actually.
+    // and with event listener () we give the type of event and another parameter as false which is by default.
    /*document.getElementById("owl").addEventListener("click", (e)=> {
          alert("owl is clicked again")
     },false)*/
 
-    // we also get an event object
+    //We also get an event object
 
     document.getElementById("owl").addEventListener("click", (e)=> {
          alert("owl is clicked again")
          console.log(e);
+         console.log(e.currentTarget);
+         console.log(e.target);
+         // we get the browser event as well as environmental events
+         console.log(e.clientX);
+         console.log(e.clientY);
+         console.log(e.screenX);
+         console.log(e.screenY);
+         console.log(e);
          
         
-         // we get the browser event as well as environmental events
+         //We get the browser event as well as environmental events
 
     },false)
 
     // topics should be studied about the below event object's topic
 
-    // type, timestamp , defaultPrevented, target , toElement , srcElement , currentTarget , clientX, clientY , screenX , ScreenY 
+    // type, timestamp, defaultPrevented, target, toElement , srcElement, currentTarget , clientX, clientY, screenX , ScreenY 
 
     // e.type
 
@@ -90,4 +98,102 @@
     console.log(e.target);
 
     // The target property returns the element where the event occurred.
+
+    // toElement
+      console.log(e.toElement());
+    // It's a property of the event object (e) that retrieves a reference to the element that the mouse pointer entered during specific mouse events.
+
+
+    // currentTarget
+    
+      console.log(e.currentTarget);
+
+    // the currentTarget property returns the element whose event listener triggered the event.
+
+    // clientX
+
+     console.log(e.clientX);
+
+    // The clientX property returns the horizontal client coordinate of the mouse pointer when a mouse event occurs.
+    // It only shows the value if the gets clicked in the client Area.
+    // The client area is the current targeted (event occurring) window.
+
+    // clientY
+
+     console.log(e.clientY);
+
+    // The clientY property returns the vertical client coordinate of the mouse pointer when a mouse event occurs.
+    // It only shows the value if the gets clicked in the client Area.
+    // The client area is the current targeted (event occurring) window.
+
+
+    // screenX
+     console.log(e.screenX);
+
+    //The screenX property returns the x (horizontal) coordinate of a window, relative to the screen.
+
+    //screenY
+
+      console.log(e.screenY);
+
+     //The screenY property returns the y (vertical) coordinate of a window, relative to the screen.
+
+     // EVENT PROPAGATION
+     
+    // Event propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrive at its target and what happens to it afterward.
+
+    // There are two ways 
+
+    // 1.Event bubbling
+
+    // When an event happens first the event target all goes through the event handler or the targeted element, then to its parent element.
+    // It is called an event bubbling
+    // As we learned the parameter given while adding an event listener the third parameter needed to be given as false.
+    // No 3rd parameters also refer to false by default.
+    
+    // example
+    
+
+    
+    document.getElementById("owl").addEventListener("click", (e)=> {
+         console.log("owl is clicked ")
+    },false)
+
+    document.getElementById("images").addEventListener("click", (e)=> {
+         console.log("image  is clicked ")
+    },false)
+    
+
+    /* the result is
+    owl is clicked (1st)
+    image  is clicked (2nd) 
+    */
+
+    // As we know the "images" id is the parent of the "owl" id.
+    //If we click on the owl image (with the false parameter or no parameter), first it targets the child then the parent.
+    // It travels bottom to top in dom tree
+    // It is called as event bubbling.
+
+    // 2. Event capturing
+    // It first captures  the outermost element and propagates to the inner elements.
+    // It travels from top to bottom or from parents to children.
+    // with the true parameter mentioned
+
+    // EXAMPLE
+
+    document.getElementById("owl").addEventListener("click", (e)=> {
+         console.log("owl is clicked ")
+    },true)
+
+    document.getElementById("images").addEventListener("click", (e)=> {
+         console.log("image  is clicked ")
+    },true)
+
+
+    /*
+    result 
+    image  is clicked (1st)
+     owl is clicked    (2nd)
+     */
+
 </script>
