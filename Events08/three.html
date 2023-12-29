@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HI Stalker</h1>
+    <button>Click Here</button>
+</body>
+<script>
+   // setTimeOut()
+   //setTimeout() is an asynchronous function
+   //The global setTimeout() method sets a timer that executes a function or specified piece of code once the timer expires.
+   // It is called or referenced from the web API.
+
+   setTimeout( ()=> {
+   console.log("I will come after 2 seconds");
+   }, 2000) 
+
+   // but we can also give any reference of a function as well
+
+   const theF = console.log(`hello guysss`);
+   setTimeout( theF , {})
+
+   // The difference between setInterval() and setTimeOut() is 
+   // 1. setInterval() executes the function repeatedly after the given interval of time.
+   // 2. But setTimeout() executes the function only once after giving time.
+
+
+</script>
+</html>
