@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Name is Suvam</h1>
+    <button id="start">start</button>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    /*
+    const nameDate = (msg)=>{
+        console.log(`${msg} Suvam`,Date.now());
+    }
+
+    //setInterval(nameDate,2000,"Hi")
+
+    // there is also a function called clearInterval() for the function setinterval()
+    
+    const theMsg = setInterval(nameDate,2000,"Hi")
+
+    clearInterval(theMsg)
+    */
+
+
+   const theStart = document.querySelector("#start")
+   const theStop =  document.querySelector("#stop")
+
+   theStart.addEventListener("click", ()=> {
+      startMsg = (msg)=>{
+        console.log(`${msg} Suvam`,Date.now());
+     }
+
+    let stopMsg = setInterval(startMsg,2000,"Hello")
+   })
+
+   
+
+   theStop.addEventListener("click",()=>{
+
+    startMsg =()=>{
+       
+        (msg)=>{
+        console.log(`${msg} Suvam`,Date.now());
+     }
+     setInterval(startMsg,2000,"Hello")
+    } 
+
+
+    
+      clearInterval(startMsg)
+   })
+</script>
+</html>
