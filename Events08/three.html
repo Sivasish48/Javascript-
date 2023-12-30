@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>a
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <h1>HI Stalker</h1>
-    <button>Click Here</button>
+    <button id="stop">Stop</button>
 </body>
 <script>
    // setTimeOut()
    //setTimeout() is an asynchronous function
-   //The global setTimeout() method sets a timer that executes a function or specified piece of code once the timer expires.
-   // It is called or referenced from the web API.
+   //The global setTimeout() method sets a timer which executes a function or specified piece of code once the timer expires.
+   // It is called or referenced from the web Api.
 
    setTimeout( ()=> {
    console.log("I will come after 2 seconds");
    }, 2000) 
 
-   // but we can also give any reference of a function as well
+   // but we can also give any refernce of a function as well
 
-   const theF = console.log(`hello guysss`);
-   setTimeout( theF , {})
-
+   const theF = () => {
+    console.log("heloooo");
+   }
+   setTimeout(theF,3000)
+   
    // The difference between setInterval() and setTimeOut() is 
    // 1. setInterval() executes the function repeatedly after the given interval of time.
-   // 2. But setTimeout() executes the function only once after giving time.
+   // 2. But setTimeout() executes the function only once after give time.
 
 
+
+   const changeT = ()=>{
+    document.querySelector("h1").innerHTML = "Bests stalker"
+   }
+
+   //setTimeout(changeT,4000)
+
+
+// There is a function clearTimeOut() to stop the setTimeOut()
+
+  //clearTimeout(changeT)
+
+  // now use this on a button
+
+
+  const changeName = setTimeout(changeT,4000)
+  document.querySelector("#stop").addEventListener("click",()=>{
+      clearTimeout(changeName)
+  })
 </script>
 </html>
