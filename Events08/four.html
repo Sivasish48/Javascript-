@@ -12,47 +12,22 @@
 </body>
 
 <script>
-    /*
-    const nameDate = (msg)=>{
-        console.log(`${msg} Suvam`,Date.now());
-    }
+const theStart = document.querySelector("#start")
+const theStop =  document.querySelector("#stop")
 
-    //setInterval(nameDate,2000,"Hi")
-
-    // there is also a function called clearInterval() for the function setinterval()
-    
-    const theMsg = setInterval(nameDate,2000,"Hi")
-
-    clearInterval(theMsg)
-    */
-
-
-   const theStart = document.querySelector("#start")
-   const theStop =  document.querySelector("#stop")
-
-   theStart.addEventListener("click", ()=> {
-      startMsg = (msg)=>{
-        console.log(`${msg} Suvam`,Date.now());
-     }
-
-    let stopMsg = setInterval(startMsg,2000,"Hello")
-   })
-
+  const printMsg = (msg) => {
+    console.log(`${msg} Suvam`,Date.now());
+  }
    
+  let stopMsg;
 
-   theStop.addEventListener("click",()=>{
+  theStart.addEventListener("click",() => {
+    stopMsg = setInterval(printMsg,2000,"Hi")
+  })
 
-    startMsg =()=>{
-       
-        (msg)=>{
-        console.log(`${msg} Suvam`,Date.now());
-     }
-     setInterval(startMsg,2000,"Hello")
-    } 
-
-
+  theStop.addEventListener("click",()=>{
+    clearInterval(stopMsg)
+  })
     
-      clearInterval(startMsg)
-   })
 </script>
 </html>
