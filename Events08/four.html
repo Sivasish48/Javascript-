@@ -10,49 +10,27 @@
     <button id="start">start</button>
     <button id="stop">Stop</button>
 </body>
-
+//Here this is composed of a start and a stop button.
+    //If we click the start it consoles the log with a msg continuously.
+    //While clicking the stop button it stops showing the message in the console.
 <script>
-    /*
-    const nameDate = (msg)=>{
-        console.log(`${msg} Suvam`,Date.now());
-    }
+ const theStart = document.querySelector("#start")
+const theStop =  document.querySelector("#stop")
 
-    //setInterval(nameDate,2000,"Hi")
-
-    // there is also a function called clearInterval() for the function setinterval()
-    
-    const theMsg = setInterval(nameDate,2000,"Hi")
-
-    clearInterval(theMsg)
-    */
-
-
-   const theStart = document.querySelector("#start")
-   const theStop =  document.querySelector("#stop")
-
-   theStart.addEventListener("click", ()=> {
-      startMsg = (msg)=>{
-        console.log(`${msg} Suvam`,Date.now());
-     }
-
-    let stopMsg = setInterval(startMsg,2000,"Hello")
-   })
-
+  const printMsg = (msg) => {
+    console.log(`${msg} Suvam`,Date.now());
+  }
    
+  let stopMsg;
 
-   theStop.addEventListener("click",()=>{
+  theStart.addEventListener("click",() => {
+    stopMsg = setInterval(printMsg,2000,"Hi")
+  })
 
-    startMsg =()=>{
-       
-        (msg)=>{
-        console.log(`${msg} Suvam`,Date.now());
-     }
-     setInterval(startMsg,2000,"Hello")
-    } 
-
-
+  theStop.addEventListener("click",()=>{
+    clearInterval(stopMsg)
+  })
     
-      clearInterval(startMsg)
    })
 </script>
 </html>
