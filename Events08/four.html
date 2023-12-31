@@ -10,9 +10,15 @@
     <button id="start">start</button>
     <button id="stop">Stop</button>
 </body>
-
+//Here this is composed of a start and a stop button.
+    //If we click the start it consoles the log with a msg continuously.
+    //While clicking the stop button it stops showing the message in the console.
 <script>
+
+
+
 const theStart = document.querySelector("#start")
+
 const theStop =  document.querySelector("#stop")
 
   const printMsg = (msg) => {
@@ -29,5 +35,7 @@ const theStop =  document.querySelector("#stop")
     clearInterval(stopMsg)
   })
     
+ })
+
 </script>
 </html>
