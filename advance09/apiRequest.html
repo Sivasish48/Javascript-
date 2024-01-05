@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: azure;">
+    <title>XMLHttpRequest</title>
+    <p>XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.</p>
+    
+    <p>XMLHttpRequest()
+        The constructor initializes an XMLHttpRequest. It must be called before any other method calls.</p>
+
+        <p>XMLHttpRequest: readyState property</p>
+        <p>The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:</p>
+
+        <table>
+            <thead>
+              <tr>
+                <th>Value</th>
+                <th>State</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>0</code></td>
+                <td><code>UNSENT</code></td>
+                <td>Client has been created. <code>open()</code> not called yet.</td>
+              </tr>
+              <tr>
+                <td><code>1</code></td>
+                <td><code>OPENED</code></td>
+                <td><code>open()</code> has been called.</td>
+              </tr>
+              <tr>
+                <td><code>2</code></td>
+                <td><code>HEADERS_RECEIVED</code></td>
+                <td><code>send()</code> has been called, and headers and status are available.</td>
+              </tr>
+              <tr>
+                <td><code>3</code></td>
+                <td><code>LOADING</code></td>
+                <td>Downloading; <code>responseText</code> holds partial data.</td>
+              </tr>
+              <tr>
+                <td><code>4</code></td>
+                <td><code>DONE</code></td>
+                <td>The operation is complete.</td>
+              </tr>
+            </tbody>
+          </table>
+    
+</body>
+<script>
+    const xHReq = new XMLHttpRequest()
+    const reqUrl =" https://api.github.com/users/Sivasish48"
+    xHReq.open("GET",reqUrl)
+    xHReq.onreadystatechange = ()=>{
+        console.log(xHReq.readyState); // onreadystatechange monitors the state change and takes a function to operate
+
+        // Now print the source data
+
+        if(xHReq.readyState === 4){
+            //console.log(xHReq.responseText);
+            // responeText is responsible
+
+
+            
+            // now we can also acces the properties of this api
+            
+            // now to do that store the retrieved api in an variable
+            
+            // NOTE that every api or retrieved data comes up with as a string
+            // So we need to convert that data into the object
+            // As we know the data of api is in a JSON format(like a object)
+            // now we we will convert the retrievd data as string to the JSON format
+            // to do that we need to use this format
+             
+            const myData = JSON.parse(xHReq.responseText)
+
+            // Now the myData is now converted as an object although a JSOn
+
+            console.log(typeof myData); // object
+
+            // now we can acces any property as we acces from an object
+
+            console.log(myData.followers); // 7
+            console.log(myData.bio) // Learning and practicing web technologies.
+
+
+            
+
+        }
+
+        // now we can also acces the properties of this api
+
+
+    } 
+
+
+    xHReq.send()
+    
+</script>
+</html>
