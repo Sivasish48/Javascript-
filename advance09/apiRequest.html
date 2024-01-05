@@ -63,19 +63,19 @@
         // Now print the source data
 
         if(xHReq.readyState === 4){
-            //console.log(xHReq.responseText);
+            console.log(xHReq.responseText);
             // responeText is responsible
 
 
             
-            // now we can also acces the properties of this api
+            //Now we can also access the properties of this API
             
-            // now to do that store the retrieved api in an variable
+            //Now to do that store the retrieved api in a variable
             
-            // NOTE that every api or retrieved data comes up with as a string
+            // NOTE that every API or retrieved data comes up with a string
             // So we need to convert that data into the object
-            // As we know the data of api is in a JSON format(like a object)
-            // now we we will convert the retrievd data as string to the JSON format
+            // As we know the data of API is in a JSON format(like an object)
+            // now we will convert the retrieved data as string to the JSON format
             // to do that we need to use this format
              
             const myData = JSON.parse(xHReq.responseText)
@@ -84,20 +84,12 @@
 
             console.log(typeof myData); // object
 
-            // now we can acces any property as we acces from an object
+            //Now we can access any property as we access from an object
 
             console.log(myData.followers); // 7
             console.log(myData.bio) // Learning and practicing web technologies.
-
-
-            
-
-        }
-
-        // now we can also acces the properties of this api
-
-
-    } 
+          }
+} 
 
 
     xHReq.send()
