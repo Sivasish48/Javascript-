@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+.card {
+  background-color: #423f3f;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 20rem; /* Adjust card width as needed */
+   /* Optionally add margin for spacing */
+   position: absolute;
+   left: 590px;
+   top: 25%;
+}
+  
+
+.card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  width: 100%;
+  height: 275px; /* Adjust image height as needed */
+  object-fit: cover;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.875rem;
+}
+
+.btn {
+  background-color: #007bff; /* Primary blue color */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+</style>
+<body style="background-color: black; color: #fff;">
+    <div class="card">
+        <img src="" class="card-img">
+        <div class="card-content">
+          <h4 class="card-title"></h4>
+          <p class="paragraph"></p>
+          <p class="paragraph2"></p>
+          <a href="#" class="btn">Show profile</a>
+        </div>
+      </div>
+      
+</body>
+<script>
+
+     const image = document.querySelector(".card-img")
+     const userName = document.querySelector(".card-title")
+     const follow = document.querySelector(".paragraph")
+    const button = document.querySelector(".btn")
+     const follow2 = document.querySelector(".paragraph2")
+    const xhr = new XMLHttpRequest()
+    const reqApi = "https://api.github.com/users/Sivasish48"
+
+    xhr.open("GET",reqApi)
+    
+    button.addEventListener("click",(e)=> {
+        xhr.onreadystatechange = () => {
+        
+            const data = xhr.responseText
+          //  console.log(typeof data);
+           // console.log(data);
+           const jsonData = JSON.parse(data);
+          // console.log(jsonData);
+          // console.log(typeof jsonData);
+          // console.log(jsonData.followers);
+          image.src = "https://avatars.githubusercontent.com/u/98220976?v=4"
+          userName.textContent = `Username : ${jsonData.login}`
+          follow.textContent = `Following : ${jsonData.following}`
+          follow2.textContent = ` Followers : ${jsonData.followers}`
+    }
+    xhr.send()
+    })
+    
+
+   
+     
+</script>
+</html>
