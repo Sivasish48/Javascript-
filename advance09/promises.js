@@ -112,3 +112,67 @@ Most sells are of the brand TATA
 Moderately  sells are of the brand KIA
 Less sells are of the brand TOYOTA,MAHINDRA,HYUNDAI
 */
+
+// Example = 5
+
+/*
+new Promise((resolve,reject)=>{
+    let err = true
+    if(err){
+       resolve({number:45, total:100})
+    } 
+    else{
+        reject(`The updation can't be completed)
+    }
+}).then((nums)=>{
+    console.log(`The auction money is ${nums.number}`);
+    //return ${nums.total}
+}).catch((error)=>{
+    console.log(error);
+})
+//The auction money is 45
+*/
+
+// Example = 6
+
+// Here the resolve method () and the catch() will come to play
+new Promise((resolve,reject)=>{
+    let err = false
+    if(err){
+       resolve({number:45, total:100})
+    } 
+    else{
+        reject(`The updataion can't be completed`)
+    }
+}).then((nums)=>{
+    console.log(`The auction money is ${nums.number}`);
+   
+}).catch((error)=>{
+    console.log(error);
+})
+
+// The updation can't be completed
+
+
+
+// Example = 7
+
+
+
+new Promise((resolve,reject)=>{
+    let err = false
+    if(err){
+       resolve({number:45, total:100})
+    } 
+    else{
+        reject(`The updataion can't be completed`)
+    }
+}).then((nums)=>{
+    console.log(`The auction money is ${nums.number}`);
+    return nums.number // So here if we use the return keyword then it will store the return value. For that, we have to create another then() like chaining way.
+}).then((numb)=>{      // Like this way
+    console.log(numb); 
+}).catch((error)=>{
+    console.log(error);
+})
+
