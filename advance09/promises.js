@@ -174,5 +174,64 @@ new Promise((resolve,reject)=>{
     console.log(numb); 
 }).catch((error)=>{
     console.log(error);
+}).finally("The auction results are finished showing.")
+// The code in the finally() defines the end message irrespective of the results.
+
+
+// Example =7
+
+// There is another way to execute the program with the promise object
+
+// With the async and await keyword
+
+// These are mostly used like the then() and the catch()
+
+// But it does not have the catch() or similar type of method where it can catch the error
+
+// These are mostly used for the backend responses
+
+// Once the response is there the code will be executed
+
+
+const newProm = new Promise ((resolve,reject)=>{
+    let er = false
+    if(er){
+        resolve({name:"sivasish",age:45})
+    } else{
+        reject("the data can't be accessed")
+    }
 })
+
+const consumeProm = async ()=>{
+     const resp = await newProm
+     console.log(resp);
+}
+
+ 
+
+// There is also another way to catch the error while using async and await
+
+const newProm = new Promise ((resolve,reject)=>{
+    let er = true
+    if(er){
+        resolve({name:"sivasish",age:45})
+    } else{
+        reject("the data can't be accessed")
+    }
+})
+
+const consumeProm = async ()=>{
+    try {
+        const resp = await newProm
+        console.log(resp);
+    } catch (error) {
+        console.log(error);
+    }
+     
+}
+consumeProm()
+
+//  {name:"sivasish",age:45}
+
+// if er = false -- output will be = the data can't be accessed
 
