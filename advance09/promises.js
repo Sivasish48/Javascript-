@@ -115,7 +115,7 @@ Less sells are of the brand TOYOTA,MAHINDRA,HYUNDAI
 
 // Example = 5
 
-/*
+
 new Promise((resolve,reject)=>{
     let err = true
     if(err){
@@ -131,7 +131,7 @@ new Promise((resolve,reject)=>{
     console.log(error);
 })
 //The auction money is 45
-*/
+
 
 // Example = 6
 
