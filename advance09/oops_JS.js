@@ -72,3 +72,50 @@ console.log(obj.thethis());
 
 console.log(this);// {}
 
+
+function User (userName,loginCount,isLoggedIn){
+    this.name = userName
+    this.lg = loginCount
+    this.islg = isLoggedIn
+    
+    return this
+}
+
+const userOne =  User("Hari",55,false)
+// We should use new to create an instance of User.
+//The user should be User to follow the convention of the constructor function.
+console.log(userOne);
+// output is
+
+/*
+  name: 'Hari',
+  lg: 55,
+  islg: false
+  */
+
+
+  const userTwo = User("Ram",69, true)
+
+ console.log(userTwo);
+
+ // the output is
+
+ /*
+  name: 'Ram',
+  lg: 69,
+  islg: true
+  */
+  const userThree = new User("Shyam",44,true)
+  console.log(userThree);
+
+  // output is ---> User { name: 'Shyam', lg: 44, islg: true }
+
+  const userFour = new User("Suvam",12,true)
+  console.log(userFour);
+
+  // output is 
+
+  // User { name: 'Shyam', lg: 44, islg: true } ( for userThree)
+  // User { name: 'Suvam', lg: 12, islg: true }
+
+
