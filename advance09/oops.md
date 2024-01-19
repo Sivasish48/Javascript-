@@ -40,8 +40,8 @@
 
 ```javascript
 
- ## OBJECT LITERAL
-
+  OBJECT LITERAL
+ ----------------
  -- In JavaScript, an object literal is a way to create an object by specifying its properties and values directly within curly braces {}.
 
  -- Basically, it is just an object defined.
@@ -157,7 +157,98 @@ console.log(this);// {}
 
 -- What if we print " this" in the browser
 
-// It will refer to the window object in browser
+// It will refer to the window object in the browser
 
-// The output will be all the values and properties of the global object.
- 
+// The output will be all the values and properties of the window object.
+
+
+Constructor Function 
+--------------------
+
+--- n JavaScript, a constructor function is a special type of function that is used to create and initialize objects. 
+
+--- Constructor functions are typically used with the "new" keyword to create instances of an object type.
+
+// Example
+
+ const newProm = new Promise()
+ const newDate = new Date()
+
+---  When a constructor function is invoked with "new", it creates a new object and sets "this" to refer to that object.
+
+
+function User (userName,loginCount,isLoggedIn){
+    this.name = userName
+    this.lg = loginCount
+    this.islg = isLoggedIn
+    
+    return this
+    // we also dont need to write return.s
+}
+
+const userOne = new User("Hari",55,false)
+// We should use new to create an instance of User.
+
+console.log(userOne);
+// output is
+
+/*
+  name: 'Hari',
+  lg: 55,
+  islg: false
+  */
+
+  
+
+
+--- Now if we  would create another  variable to store the mentioned arguments.
+
+const userTwo = User("Ram",69, true)
+
+ console.log(userTwo);
+
+ // the output is
+
+ /*
+  name: 'Ram',
+  lg: 69,
+  islg: true
+  */
+
+  -- As we all can notice the value of userTwo has replaced the value of userOne.
+
+  -- Although we already have consoled the userOne still it prints the value of userTwo.
+  
+  -- To overcome this conflict situation we need to use the "new" which creates an instance as a constructor.
+  
+  -- Let us have an example with userThree and userFour.
+
+  const userThree = new User("Shyam",44,true)
+  console.log(userThree);
+
+  // output is ---> User { name: 'Shyam', lg: 44, islg: true }
+
+  const userFour = new User("Suvam",12,true)
+  console.log(userFour);
+
+  // output is 
+
+  // User { name: 'Shyam', lg: 44, islg: true } ( for userThree)
+
+  // User { name: 'Suvam', lg: 12, islg: true }
+  
+
+--- what happens when we use the "new" keyword?
+
+- step1 --
+The new keyword creates a new, empty object.
+
+- step2 --
+ Inside the constructor function, "this" refers to the newly created object.
+
+ - step3 --
+ The constructor function initializes the object by setting properties and methods on the object using "this".
+
+ - step4 --
+ The new object is returned.
+
