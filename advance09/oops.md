@@ -238,7 +238,7 @@ const userTwo = User("Ram",69, true)
   // User { name: 'Suvam', lg: 12, islg: true }
   
 
---- what happens when we use the "new" keyword?
+--- What happens when we use the "new" keyword?
 
 - step1 --
 The new keyword creates a new, empty object.
@@ -252,3 +252,64 @@ The new keyword creates a new, empty object.
  - step4 --
  The new object is returned.
 
+---- NOTE ----
+
+ The instance of the operator in JavaScript returns a boolean value if true then it indicates that the object is an instance of a particular class and if false then it is not. 
+
+ // Example 
+
+ console.log(userFour instanceof User);// true
+
+
+
+ PROTOTYPE
+ ---------
+
+ --- A prototype is a set of properties and methods that are shared among all instances created from it.
+ --- Everything becomes an object in Javascript at the end of the day.
+ --- All the functions, strings, and arrays refer to the object prototype, and the property of an object prototype is available for all prototypes.
+
+
+ ---- 1. Prototype Object----
+
+ //Let us take an example for a function using an object prototype.
+
+function mul(num){
+   return num*8
+}
+
+mul.power = 7
+console.log(mul(8)); // 64
+
+console.log(mul.power); //7
+
+
+----2."prototype" Property----
+
+-- Each function in JavaScript has a special property called prototype. When you create an object using a constructor function(using new), the newly created object inherits properties and methods from the constructor's prototype.
+
+
+function Person(name) {
+    this.name = name;
+    console.log(this.name);
+  }
+  console.log(Person("suvam")); // suvam
+
+// Adding a custom function as the prototype
+
+  Person.prototype.sayHello = function() {
+    console.log(`Hello, my name is ${this.name}`);
+  };
+  
+  
+
+// Now create a constructor function to inherit the property of the "Person" function.
+
+  const person1 = new Person("John");
+  
+  person1.sayHello(); // Outputs: Hello, my name is John.
+
+
+ ----3. __proto__ Property----
+
+ -- Every object in JavaScript has a special __proto__ property that points to its prototype object.
