@@ -119,3 +119,36 @@ console.log(userOne);
   // User { name: 'Suvam', lg: 12, islg: true }
 
 
+console.log(userFour instanceof User);// true
+
+
+
+function mul(num){
+   return num*8
+}
+
+mul.power = 7
+console.log(mul(8)); // 64
+
+console.log(mul.power); //7
+
+
+
+
+function Person(name) {
+    this.name = name;
+    console.log(this.name);
+  }
+  console.log(Person("suvam")); // suvam
+
+// Adding a custom fucntion as the prototype
+
+  Person.prototype.sayHello = function() {
+    console.log(`Hello, my name is ${this.name}`);
+  };
+  
+// Now create a constructor function to inherit the property of the "Person" function.
+
+  const person1 = new Person("John");
+  
+  person1.sayHello(); // Outputs: Hello, my name is John
