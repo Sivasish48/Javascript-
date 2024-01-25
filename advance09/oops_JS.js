@@ -141,7 +141,7 @@ function Person(name) {
   }
   console.log(Person("suvam")); // suvam
 
-// Adding a custom fucntion as the prototype
+// Adding a custom function as the prototype
 
   Person.prototype.sayHello = function() {
     console.log(`Hello, my name is ${this.name}`);
@@ -152,3 +152,36 @@ function Person(name) {
   const person1 = new Person("John");
   
   person1.sayHello(); // Outputs: Hello, my name is John
+
+
+// call
+
+  // The .call() method is particularly useful in scenarios where you want to reuse a function but with a different context or set of arguments.
+
+
+  function setUser (username){
+         this.username = username
+         console.log("called");
+  }
+
+  function callUser (username,gender,password){
+      
+   // setUser(username)
+
+   setUser.call(this,username)
+
+    this.gender = gender
+    this.password = password
+  }
+
+  const newCall = new callUser("suvam","M",457822)
+  console.log(newCall);
+
+  // The output is 
+  // called
+  // callUser { gender: 'M', password: 457822 }
+
+  // but to get the username in the object we need to use call and this
+
+// output callUser { username: 'suvam', gender: 'M', password: 457822 }
+  
