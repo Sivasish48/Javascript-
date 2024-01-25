@@ -313,3 +313,93 @@ function Person(name) {
  ----3. __proto__ Property----
 
  -- Every object in JavaScript has a special __proto__ property that points to its prototype object.
+
+--  It's important to note that the use of __proto__ is considered somewhat outdated, and the recommended approach is to use Object.getPrototypeOf() and Object.setPr ototypeOf() for accessing and modifying the prototype.
+
+
+NOTE
+----
+CALL AND THIS
+-------------
+
+--  // The .call() method is particularly useful in scenarios where you want to reuse a function but with a different context or set of arguments.
+
+
+  function setUser (username){
+         this.username = username
+         console.log("called");
+  }
+
+  function callUser (username,gender,password){
+      
+   // setUser(username)
+
+   setUser.call(this,username)
+
+    this.gender = gender
+    this.password = password
+  }
+
+  const newCall = new callUser("suvam","M",457822)
+  console.log(newCall);
+
+  // The output is 
+  // called
+  // callUser { gender: 'M', password: 457822 }
+
+  // but to get username in the object we need to use call and this in line no. 337
+
+// output callUser { username: 'suvam', gender: 'M', password: 457822 }
+
+
+
+CLASSES IN JAVASCRIPT
+---------------------
+
+-- In JavaScript, classes were introduced in ECMAScript 2015 (ES6) as a syntactical sugar over prototype-based inheritance.
+
+--  Classes make it easier to create and manage objects with a more familiar syntax for developers who are accustomed to class-based languages.
+
+-- Example
+
+
+
+class Tiger {
+
+    // Constructor method for initializing the instances.
+  
+    constructor(name,sound){
+      this.name = name
+      this.sound = sound
+    }
+     
+    // A method defined in the class
+    makeSound(){
+      console.log(`${this.name} says ${this.sound}`);
+    }
+  }
+  
+  // creating an instance Tiger class
+  const zooKeeper = new Tiger ("Cat", "Meow")
+
+  // Using the instance's method
+ zooKeeper.makeSound()  // Cat says Meow
+
+
+
+ // Let us see how it work behind the scene
+
+ function Animal(name,sound){
+      
+      this.name = name
+      this.sound = sound
+ }
+
+ Animal.prototype.makeSound = function () {
+      console.log(`${this.name} says ${this.sound}`);
+ }
+
+ const zooKeeper = new Animal ("cat","meow")
+ zooKeeper.makeSound() // cat says meow
+
+  
