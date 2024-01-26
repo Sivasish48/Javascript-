@@ -1,0 +1,59 @@
+// In JavaScript, the bind() method is used to create a new function that, when called, has this keyword set to a specific value. It allows you to explicitly specify the value that should be used as this when a function is invoked.
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Bind</title>
+</head>
+<body>
+    <button id="btn">Button is clicked</button>
+</body>
+<script>
+
+    class React {
+        constructor(){
+            
+            this.library = "React"
+            this.server = "https://localhost:3000"
+            
+            // so instead of using this
+           //  document.querySelector("#btn").addEventListener("click",this.handleClicked)
+
+           //We should use this with ".bind()"
+
+          // document.querySelector("#btn").addEventListener("click",this.handleClicked.
+          // bind(this))
+
+          // or if we want any particular access from this, example I want to see the "server"
+          document.querySelector("#btn").addEventListener("click",this.handleClicked.
+          bind(this.server))
+
+          /*
+           Button clicked
+           https://localhost:3000
+           */
+        }
+        handleClicked(){
+
+           console.log("Button clicked"); // button is clicked  ( It runs until this, which means this has some value)
+
+           // We can check if is there any value in this below
+
+           console.log(this);  // <button id="btn">Button is clicked</button>  (yes it has got some value )
+
+           // But it hasn't got the value of other elements present like the server.
+           // It is unable to find the server value 
+           // For that we have to use bind up there above
+           console.log(this.server);
+
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
