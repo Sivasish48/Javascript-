@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: black;">
+    <button id="B1">Green</button>
+    <button id="B2">Blue</button>
+</body>
+
+<script>
+
+    function colorChange(color){
+
+          function realChange(){
+                    document.body.style.backgroundColor = `${color}`;
+                  }
+                
+                  return realChange
+       }
+
+  document.querySelector("#B1").onclick = colorChange("green")
+  document.querySelector("#B2").onclick = colorChange("blue")
+</script>
+</html>
